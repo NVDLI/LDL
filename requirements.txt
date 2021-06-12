@@ -1,0 +1,8 @@
+numpy
+matplotlib
+idx2numpy
+pillow
+sklearn
+tensorflow>=2.4.0
+torch>=1.8.0
+torchvision>=0.9.0
