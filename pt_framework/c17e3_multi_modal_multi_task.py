@@ -97,15 +97,15 @@ test_text, test_answers = create_question_answer(tokenizer,
                                                  test_labels)
 
 # Create datasets.
-trainset = TensorDataset(torch.from_numpy(train_images).clone(), 
-                         torch.from_numpy(train_text).clone(),
-                         torch.from_numpy(train_labels).clone(),
-                         torch.from_numpy(train_answers).clone())
+trainset = TensorDataset(torch.from_numpy(train_images), 
+                         torch.from_numpy(train_text),
+                         torch.from_numpy(train_labels),
+                         torch.from_numpy(train_answers))
 
-testset = TensorDataset(torch.from_numpy(test_images).clone(),
-                         torch.from_numpy(test_text).clone(),
-                         torch.from_numpy(test_labels).clone(),
-                         torch.from_numpy(test_answers).clone())
+testset = TensorDataset(torch.from_numpy(test_images),
+                         torch.from_numpy(test_text),
+                         torch.from_numpy(test_labels),
+                         torch.from_numpy(test_answers))
 
 # Define model.
 class MultiTaskModel(nn.Module):

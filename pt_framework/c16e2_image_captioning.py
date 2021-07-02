@@ -107,7 +107,7 @@ dest_tokenizer, dest_token_seq = tokenize(dest_seq)
 # Dataset class to read input files on the fly.
 class ImageCaptionDataset(Dataset):
     def __init__(self, image_paths, dest_input_data,
-                 dest_target_data, batch_size):
+                 dest_target_data):
         self.image_paths = image_paths
         self.dest_input_data = dest_input_data
         self.dest_target_data = dest_target_data
@@ -125,9 +125,9 @@ class ImageCaptionDataset(Dataset):
         pickle_file = gzip.open(file_name, 'rb')
         feature_vector = pickle.load(pickle_file)
         pickle_file.close()
-        return torch.from_numpy(np.array(feature_vector)).clone(), \
-               torch.from_numpy(np.array(dest_input)).clone(), \
-               torch.from_numpy(np.array(dest_target)).clone()
+        return torch.from_numpy(np.array(feature_vector)), \
+               torch.from_numpy(np.array(dest_input)), \
+               torch.from_numpy(np.array(dest_target))
 
 # Prepare training data.
 dest_target_token_seq = [x + [STOP_INDEX] for x in dest_token_seq]
@@ -144,7 +144,7 @@ dest_input_data = dest_input_data.astype(np.int64)
 dest_target_data = dest_target_data.astype(np.int64)
 
 trainset = ImageCaptionDataset(
-    image_paths, dest_input_data, dest_target_data, BATCH_SIZE)
+    image_paths, dest_input_data, dest_target_data)
 
 # Load the pre-trained VGG19 model.
 vgg19_model = torchvision.models.vgg19(pretrained=True)
@@ -222,9 +222,6 @@ class CaptioningModel(nn.Module):
     def clear_state(self):
         self.use_state = False
         return
-
-    def get_probs(self):
-        return self.probs
 
 captioning_model = CaptioningModel()
 

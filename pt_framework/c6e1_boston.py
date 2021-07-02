@@ -55,10 +55,10 @@ x_train = (raw_x_train - x_mean) / x_stddev
 x_test = (raw_x_test - x_mean) / x_stddev
 
 # Create Dataset objects.
-trainset = TensorDataset(torch.from_numpy(x_train).clone(),
-                         torch.from_numpy(y_train).clone())
-testset = TensorDataset(torch.from_numpy(x_test).clone(),
-                        torch.from_numpy(y_test).clone())
+trainset = TensorDataset(torch.from_numpy(x_train),
+                         torch.from_numpy(y_train))
+testset = TensorDataset(torch.from_numpy(x_test),
+                        torch.from_numpy(y_test))
 
 # Create model.
 model = nn.Sequential(
@@ -84,10 +84,9 @@ train_model(model, device, EPOCHS, BATCH_SIZE, trainset, testset,
             optimizer, loss_function, 'mae')
 
 # Print first 4 predictions.
-testloader = DataLoader(dataset=testset, batch_size=BATCH_SIZE, shuffle=False)
-inputs, targets = next(iter(testloader))
-inputs, targets = inputs.to(device), targets.to(device)
+inputs = torch.from_numpy(x_test)
+inputs = inputs.to(device)
 outputs = model(inputs)
 for i in range(0, 4):
     print('Prediction: %4.2f' % outputs.data[i].item(),
-         ', true value: %4.2f' % targets[i].item())
+         ', true value: %4.2f' % y_test[i].item())

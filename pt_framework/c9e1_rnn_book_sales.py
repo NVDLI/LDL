@@ -67,8 +67,7 @@ plt.show()
 test_output = test_sales[MIN:]
 naive_prediction = test_sales[MIN-1:-1]
 x = range(len(test_output))
-plt.plot(x, test_output, 'g-',
-         label='test_output')
+plt.plot(x, test_output, 'g-', label='test_output')
 plt.plot(x, naive_prediction, 'm-', label='naive prediction')
 plt.title('Book store sales')
 plt.axis([0, len(test_output), 0.0, 3000.0])
@@ -78,7 +77,7 @@ plt.legend()
 plt.show()
 
 # Standardize train and test data.
-# Only use training seasons to compute mean and stddev.
+# Use only training seasons to compute mean and stddev.
 mean = np.mean(train_sales)
 stddev = np.mean(train_sales)
 train_sales_std = (train_sales - mean)/stddev
@@ -101,8 +100,8 @@ for i in range(0, test_months-MIN):
     test_y[i, 0] = test_sales_std[i+MIN]
 
 # Create Dataset objects.
-trainset = TensorDataset(torch.from_numpy(train_X).clone(), torch.from_numpy(train_y).clone())
-testset = TensorDataset(torch.from_numpy(test_X).clone(), torch.from_numpy(test_y).clone())
+trainset = TensorDataset(torch.from_numpy(train_X), torch.from_numpy(train_y))
+testset = TensorDataset(torch.from_numpy(test_X), torch.from_numpy(test_y))
 
 # Custom layer that retrieves only last time step from RNN output.
 class LastTimestep(nn.Module):

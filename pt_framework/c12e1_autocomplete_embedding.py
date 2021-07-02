@@ -74,8 +74,8 @@ train_X, test_X, train_y, test_y = train_test_split(
     X, y, test_size=0.05, random_state=0)
 
 # Create Dataset objects.
-trainset = TensorDataset(torch.from_numpy(train_X).clone(), torch.from_numpy(train_y).clone())
-testset = TensorDataset(torch.from_numpy(test_X).clone(), torch.from_numpy(test_y).clone())
+trainset = TensorDataset(torch.from_numpy(train_X), torch.from_numpy(train_y))
+testset = TensorDataset(torch.from_numpy(test_X), torch.from_numpy(test_y))
 
 # Define model.
 class LanguageModel(nn.Module):

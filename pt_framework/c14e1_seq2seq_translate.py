@@ -138,12 +138,12 @@ sample_input_data = test_src_input_data[sample_indices]
 sample_target_data = test_dest_target_data[sample_indices]
 
 # Create Dataset objects.
-trainset = TensorDataset(torch.from_numpy(train_src_input_data).clone(),
-                         torch.from_numpy(train_dest_input_data).clone(),
-                         torch.from_numpy(train_dest_target_data).clone())
-testset = TensorDataset(torch.from_numpy(test_src_input_data).clone(),
-                         torch.from_numpy(test_dest_input_data).clone(),
-                         torch.from_numpy(test_dest_target_data).clone())
+trainset = TensorDataset(torch.from_numpy(train_src_input_data),
+                         torch.from_numpy(train_dest_input_data),
+                         torch.from_numpy(train_dest_target_data))
+testset = TensorDataset(torch.from_numpy(test_src_input_data),
+                         torch.from_numpy(test_dest_input_data),
+                         torch.from_numpy(test_dest_target_data))
 
 # Define models.
 class EncoderModel(nn.Module):

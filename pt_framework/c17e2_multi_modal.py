@@ -86,13 +86,13 @@ train_text = create_text(tokenizer, train_labels).astype(np.int_)
 test_text = create_text(tokenizer, test_labels).astype(np.int_)
 
 # Create datasets.
-trainset = TensorDataset(torch.from_numpy(train_images).clone(),
-                         torch.from_numpy(train_text).clone(),
-                         torch.from_numpy(train_labels).clone())
+trainset = TensorDataset(torch.from_numpy(train_images),
+                         torch.from_numpy(train_text),
+                         torch.from_numpy(train_labels))
 
-testset = TensorDataset(torch.from_numpy(test_images).clone(),
-                         torch.from_numpy(test_text).clone(),
-                         torch.from_numpy(test_labels).clone())
+testset = TensorDataset(torch.from_numpy(test_images),
+                         torch.from_numpy(test_text),
+                         torch.from_numpy(test_labels))
 
 # Define model.
 class MultiModalModel(nn.Module):

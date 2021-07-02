@@ -55,7 +55,7 @@ with torch.no_grad():
 # Convert to probabilities, since final SoftMax activation is not in pretrained model.
 probabilities = torch.nn.functional.softmax(outputs[0], dim=0)
 
-# Retrieve and print top 5 predictions.
+# Print class ID for top 5 predictions.
 _, indices = torch.sort(probabilities, descending=True)
 for i in range(0, 5):
     print('ImageNet class:', indices[i].item(), ', probability = %4.3f' % probabilities[indices[i]].item())
