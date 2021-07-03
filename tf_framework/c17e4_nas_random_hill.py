@@ -155,7 +155,6 @@ def create_model(layers):
     model = Sequential()
     model.add(Lambda(lambda x: x, input_shape=(32, 32, 3)))
     prev_layer = 'LAMBDA' # Dummy layer to set input_shape
-    prev_size = 0
     for layer in layers:
         add_layer(model, layer, prev_layer)
         prev_layer = layer['layer_type']
