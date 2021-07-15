@@ -55,7 +55,9 @@ model.eval()
 model.to(device)
 
 # Run all images through the network and save the output.
-for key in image_dict.keys():
+for i, key in enumerate(image_dict.keys()):
+    if i % 1000 == 0:
+        print('Progress: ' + str(i) + ' images processed')
     item = image_dict.get(key)
     filename = TRAINING_FILE_DIR + 'train2014/' + item[0]
 
