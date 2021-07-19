@@ -1,0 +1,8 @@
+numpy
+matplotlib
+idx2numpy
+pillow
+sklearn
+tensorflow
+torch
+torchvision
