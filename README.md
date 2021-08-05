@@ -62,9 +62,9 @@ the results stated in the book.
 
 ## Supporting Spreadsheet
 Apart from the code examples, this repository also contains a spreadsheet named
-[network_example.xlsx](network_example.xlsx). The spreadsheet provides additional insight about the basic
+[network_example.xlsx](network_example.xlsx). The spreadsheet provides additional insight into the basic
 workings of neurons and the learning process. It is unlikely that this
-spreadsheet is useful without first readint the corresponding description in LDL.
+spreadsheet is useful without first reading the corresponding description in LDL.
 
 The spreadsheet consists of three tabs, each corresponding to a specific section
 of the initial chapters:
