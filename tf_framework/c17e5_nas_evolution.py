@@ -28,14 +28,12 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Lambda
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.layers import Flatten
-from tensorflow.keras.layers import Reshape
 from tensorflow.keras.layers import Conv2D
 from tensorflow.keras.layers import Dropout
 from tensorflow.keras.layers import MaxPooling2D
 import numpy as np
 import logging
 import copy
-import random
 tf.get_logger().setLevel(logging.ERROR)
 
 MAX_MODEL_SIZE = 500000
