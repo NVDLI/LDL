@@ -77,7 +77,7 @@ of the initial chapters:
 
 ## Datasets
 Some of the programming examples rely on datasets accessible through the DL
-framework but others need to be downloaded and place in the appropriate location.
+framework but others need to be downloaded and placed in the appropriate location.
 This section describes how to obtain the ones that need to be downloaded. All
 program examples assume that the downloaded datasets are placed in the directory
 named data in the root of the code example directory tree.
@@ -96,8 +96,8 @@ Once downloaded, gunzip them to the `data/mnist/` directory. You need the
 Python package idx2numpy to use this version of the MNIST dataset.
 
 ### BOOKSTORE SALES DATA FROM US CENSUS BUREAU
-Sales data from the United States Census Bureau can be obtained from https://
-www.census.gov/econ/currentdata.
+Sales data from the United States Census Bureau can be obtained from
+https://www.census.gov/econ/currentdata.
 
 Select Monthly Retail Trade and Food Services and click the Submit button. That
 should take you to a page where you need to specify five different steps. Select:
@@ -116,7 +116,7 @@ any lines with non-numerical values, such as "NA", at the end of the file. Name 
 file book_store_sales.csv and copy to the `data` directory.
 
 ### FRANKENSTEIN FROM PROJECT GUTENBERG
-The text of Mary Shelley's Frankenstein can be downloaded from
+The text for Mary Shelley's Frankenstein can be downloaded from
 https://www.gutenberg.org/files/84/84-0.txt.
 Rename the file to `frankenstein.txt` and copy to the `data` directory.
 
