@@ -39,7 +39,7 @@ NUM_LETTERS = 11
 MAX_LENGTH = 50
 
 # Open the input file.
-file = open(INPUT_FILE_NAME, 'r', encoding='utf-8')
+file = open(INPUT_FILE_NAME, 'r', encoding='utf-8-sig')
 text = file.read()
 file.close()
 

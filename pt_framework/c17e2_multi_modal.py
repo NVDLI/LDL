@@ -82,8 +82,8 @@ def create_text(tokenizer, labels):
 vocabulary = ['lower', 'upper', 'half', 'even', 'odd', 'number']
 tokenizer = Tokenizer(num_words=MAX_WORDS)
 tokenizer.fit_on_texts(vocabulary)
-train_text = create_text(tokenizer, train_labels).astype(np.int_)
-test_text = create_text(tokenizer, test_labels).astype(np.int_)
+train_text = create_text(tokenizer, train_labels).astype(np.int64)
+test_text = create_text(tokenizer, test_labels).astype(np.int64)
 
 # Create datasets.
 trainset = TensorDataset(torch.from_numpy(train_images),

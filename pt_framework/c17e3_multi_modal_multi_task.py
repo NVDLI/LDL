@@ -83,7 +83,7 @@ def create_question_answer(tokenizer, labels):
             if label % 2 == 1:
                 answers[i] = 1.0
     text = tokenizer.texts_to_sequences(text)
-    text = pad_sequences(text).astype(np.int_)
+    text = pad_sequences(text).astype(np.int64)
     answers = answers.reshape((len(labels), 1))
     return text, answers
 

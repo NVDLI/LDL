@@ -43,7 +43,7 @@ MAX_WORDS = 10000
 EMBEDDING_WIDTH = 100
 
 # Open and read file.
-file = open(INPUT_FILE_NAME, 'r', encoding='utf-8')
+file = open(INPUT_FILE_NAME, 'r', encoding='utf-8-sig')
 text = file.read()
 file.close()
 
@@ -64,7 +64,7 @@ fragments_indexed = tokenizer.texts_to_sequences(fragments)
 targets_indexed = tokenizer.texts_to_sequences(targets)
 
 # Convert to appropriate input and output formats.
-X = np.array(fragments_indexed, dtype=np.int)
+X = np.array(fragments_indexed, dtype=np.int64)
 y = np.zeros((len(targets_indexed), MAX_WORDS))
 for i, target_index in enumerate(targets_indexed):
     y[i, target_index] = 1
@@ -112,7 +112,7 @@ inference_model.reset_states()
 predicted_string = ''
 # Feed initial words to the model.
 for i, word_index in enumerate(first_words_indexed):
-    x = np.zeros((1, 1), dtype=np.int)
+    x = np.zeros((1, 1), dtype=np.int64)
     x[0][0] = word_index[0]
     predicted_string += first_words[i]
     predicted_string += ' '

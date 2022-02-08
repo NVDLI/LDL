@@ -306,10 +306,10 @@ for i in range(generations):
     # Randomly select fit individuals.
     population.sort(key=lambda x:x[0])
     print('Evolution, best accuracy: %5.2f' %population[-1][0])
-    top = np.int(np.ceil(0.2*len(population)))
-    bottom = np.int(np.ceil(0.3*len(population)))
+    top = np.int64(np.ceil(0.2*len(population)))
+    bottom = np.int64(np.ceil(0.3*len(population)))
     top_individuals = population[-top:]
-    remaining = np.int(len(population)/2) - len(top_individuals)
+    remaining = np.int64(len(population)/2) - len(top_individuals)
     population = random.sample(population[bottom:-top],
                                remaining) + top_individuals
 
