@@ -79,7 +79,7 @@ plt.show()
 # Standardize train and test data.
 # Use only training seasons to compute mean and stddev.
 mean = np.mean(train_sales)
-stddev = np.mean(train_sales)
+stddev = np.std(train_sales)
 train_sales_std = (train_sales - mean)/stddev
 test_sales_std = (test_sales - mean)/stddev
 
