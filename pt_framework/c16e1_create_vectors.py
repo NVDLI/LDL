@@ -45,7 +45,7 @@ for anno in data['annotations']:
     image_dict[anno['image_id']].append(anno['caption'])
 
 # Create network without top layers.
-model = torchvision.models.vgg19(pretrained=True)
+model = torchvision.models.vgg19(weights=torchvision.models.VGG19_Weights.IMAGENET1K_V1)
 model_blocks = list(model.children())
 layers = list(model_blocks[0].children())
 model = nn.Sequential(*layers[0:-1])

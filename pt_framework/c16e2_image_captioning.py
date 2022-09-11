@@ -147,7 +147,7 @@ trainset = ImageCaptionDataset(
     image_paths, dest_input_data, dest_target_data)
 
 # Load the pre-trained VGG19 model.
-vgg19_model = torchvision.models.vgg19(pretrained=True)
+vgg19_model = torchvision.models.vgg19(weights=torchvision.models.VGG19_Weights.IMAGENET1K_V1)
 model_blocks = list(vgg19_model.children())
 layers = list(model_blocks[0].children())
 vgg19_model = nn.Sequential(*layers[0:-1])

@@ -41,7 +41,7 @@ input_tensor = preprocess(image)
 inputs = input_tensor.unsqueeze(0)
 
 # Load the pre-trained model.
-model = torchvision.models.resnet50(pretrained=True)
+model = torchvision.models.resnet50(weights=torchvision.models.ResNet50_Weights.IMAGENET1K_V1)
 model.eval()
 
 # Transfer model to GPU.
