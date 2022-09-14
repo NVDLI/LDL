@@ -33,11 +33,11 @@ and pt_framework directory. Pick a framework of your choice or learn both!
 
 The initial versions of these programming examples were tested with
 versions 2.4 and 2.5 of TensorFlow and versions 1.8.0 and 1.9.0 of
-PyTorch. TensorFlow is sometimes rather verbose when using GPU acceleration.
-To make it less verbose, set the environment variable `TF_CPP_MIN_LOG_LEVEL`
-to the value 2. If you are using bash, this can be done with `export
-TF_CPP_MIN_LOG_LEVEL=2`.
-
+PyTorch. The most recent versions have been tested with version 2.9.1 of 
+TensorFlow and version 1.12.1 of PyTorch. TensorFlow is sometimes rather 
+verbose when using GPU acceleration. To make it less verbose, set the 
+environment variable `TF_CPP_MIN_LOG_LEVEL` to the value 2. If you are 
+using bash, this can be done with `export TF_CPP_MIN_LOG_LEVEL=2`.
 
 The naming of each code example follows the pattern `cXeY_DESCRIPTION.py`
 where X represents the chapter number, Y the example number in that chapter,
