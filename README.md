@@ -60,6 +60,18 @@ Because of the stochastic nature of DL algorithms, the results may vary from
 run to run. That is, it is expected that your results will not exactly reproduce
 the results stated in the book.
 
+### Alternative Versions
+Some of the code examples have alternative versions to work around issues observed
+on some platforms. This applies to the following code examples:
+* `tf_framework/c11_e1_autocomplete_no_rdo` - this version does not use recurrent
+ dropout, which causes hangs on some platforms
+* `tf_framework/c12_e1_autocomplete_embeddin_no_rdo` - this version does not use recurrent
+ dropout, which causes hangs on some platforms
+* `tf_framework/c17_e4_nas_random_hill_multiprocess` - this version spawns multiple
+ processes, which works around a memory leak problem observed on some platforms
+* `tf_framework/c17_e5_nas_evolution_multiprocess` - this version spawns multiple
+ processes, which works around a memory leak problem observed on some platforms
+
 ## Supporting Spreadsheet
 Apart from the code examples, this repository also contains a spreadsheet named
 [network_example.xlsx](network_example.xlsx). The spreadsheet provides additional insight into the basic
