@@ -1,0 +1,5 @@
+FROM nvcr.io/nvidia/tensorflow:22.10-tf2-py3
+
+WORKDIR /workspace
+
+RUN pip install --upgrade pip idx2numpy

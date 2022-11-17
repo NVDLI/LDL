@@ -1,0 +1,6 @@
+FROM nvcr.io/nvidia/pytorch:22.10-py3
+
+WORKDIR /workspace
+
+RUN pip install --upgrade pip idx2numpy sklearn tensorflow
+
