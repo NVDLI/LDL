@@ -20,6 +20,13 @@ examples are to illustrate concepts taught in the LDL book. The examples
 should be considered in that context, and are best consumed in conjunction
 with reading the book.
 
+## Docker Files
+The repository contains two Docker files to simplify running the code examples under Docker:
+* `Dockerfile_tf` - for the TensorFlow versions of the code examples
+* `Dockerfile_pt` - for the PyTorch versions of the code examples
+
+See the author's site for blog posts describing how to set up and run Docker on Linux and Windows: http://ldlbook.com
+
 ## Code Examples
 The code examples can be divided into three categories in the following
 three directories:
