@@ -39,7 +39,7 @@ test_labels = idx2numpy.convert_from_file(TEST_LABEL_FILENAME)
 print('dimensions of train_images: ', train_images.shape)
 print('dimensions of train_labels: ', train_labels.shape)
 print('dimensions of test_images: ', test_images.shape)
-print('dimensions of test_images: ', test_labels.shape)
+print('dimensions of test_labels: ', test_labels.shape)
 
 # Print one training example.
 print('label for first training example: ', train_labels[0])
