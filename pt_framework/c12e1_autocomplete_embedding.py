@@ -39,7 +39,7 @@ INPUT_FILE_NAME = '../data/frankenstein.txt'
 WINDOW_LENGTH = 40
 WINDOW_STEP = 3
 PREDICT_LENGTH = 3
-MAX_WORDS = 10000
+MAX_WORDS = 7500
 EMBEDDING_WIDTH = 100
 
 # Open the input file.

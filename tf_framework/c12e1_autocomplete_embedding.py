@@ -39,7 +39,7 @@ INPUT_FILE_NAME = '../data/frankenstein.txt'
 WINDOW_LENGTH = 40
 WINDOW_STEP = 3
 PREDICT_LENGTH = 3
-MAX_WORDS = 10000
+MAX_WORDS = 7500
 EMBEDDING_WIDTH = 100
 
 # Open and read file.
@@ -92,7 +92,7 @@ history = training_model.fit(X, y, validation_split=0.05,
 inference_model = Sequential()
 inference_model.add(Embedding(
     output_dim=EMBEDDING_WIDTH, input_dim=MAX_WORDS,
-    mask_zero=True, batch_input_shape=(1, 1)))
+    mask_zero=False, batch_input_shape=(1, 1)))
 inference_model.add(LSTM(128, return_sequences=True,
                          dropout=0.2, recurrent_dropout=0.2,
                          stateful=True))
