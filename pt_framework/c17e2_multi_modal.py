@@ -102,9 +102,9 @@ class MultiModalModel(nn.Module):
         nn.init.uniform_(self.embedding_layer.weight, -0.05, 0.05) # Default is -1, 1.
         self.lstm_layers = nn.LSTM(EMBEDDING_WIDTH, 8, num_layers=1, batch_first=True)
 
-        self.linear_layer = nn.Linear(784, 25)
+        self.linear_layer = nn.Linear(784+8, 25)
         self.relu_layer = nn.ReLU()
-        self.output_layer = nn.Linear(25+8, 10)
+        self.output_layer = nn.Linear(25, 10)
 
     def forward(self, inputs):
         image_input = inputs[0]
@@ -117,11 +117,11 @@ class MultiModalModel(nn.Module):
         # Process image data.
         # Flatten the image.
         x1 = image_input.view(-1, 784)
-        x1 = self.linear_layer(x1)
-        x1 = self.relu_layer(x1)
 
         # Concatenate input branches and feed to output layer.
         x = torch.cat((x0[1][0][0], x1), dim=1)
+        x = self.linear_layer(x)
+        x = self.relu_layer(x)
         x = self.output_layer(x)
         return x
 
