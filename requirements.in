@@ -2,8 +2,8 @@ numpy
 matplotlib
 idx2numpy
 pillow
-sklearn
-tensorflow==2.9.1
-torch==1.12.1
-torchvision==0.13.1
-torchaudio==0.12.1
+scikit-learn
+tensorflow==2.13.0
+torch==2.1.0
+torchvision==0.16.0
+torchaudio==2.1.0
