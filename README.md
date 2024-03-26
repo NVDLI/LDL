@@ -59,7 +59,7 @@ available both as Python files (.py) and as Jupyter notebooks (.ipynb).
 The naming of each code example from the videos follows the pattern
 `vX_Y_DESCRIPTION.ipynb` where X_Y represent the video number and DESCRIPTION
 is a brief description of what the example is doing. The code examples from
-the videos are only available as Jupyter notebooks (.ipynb).
+the videos are available only as Jupyter notebooks (.ipynb).
 
 Apart from the three directories containing code examples, there is a single
 directory named `data` that is supposed to contain datasets needed by some of
