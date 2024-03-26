@@ -1,6 +1,9 @@
 # LDL
 This code repository contains code examples associated with the book
-Learning Deep Learning (LDL) by Magnus Ekman (ISBN: 9780137470358).
+"Learning Deep Learning" (ISBN: 9780137470358), and the video
+series "Learning Deep Learning: From Perceptron to Large Language
+Models" (Video ISBN-13: 9780138177614) by Magnus Ekman. In this readme
+file, "Learning Deep Learning" and "LDL" are used interchangeably.
 
 Related web sites:
 * Publisher (Pearson) site with supplemental material and links to buy
@@ -9,16 +12,16 @@ Related web sites:
 * NVIDIA Deep Learning Institute (DLI) book site:
   http://www.nvidia.com/dli-books
 
-LDL can also be purchased at Amazon.com:
+The LDL book can also be purchased at Amazon.com:
 https://www.amazon.com/Learning-Deep-Practice-Transformers-TensorFlow/dp/0137470355
 
 Some of the code examples rely on datasets that are not in the repository
 itself. This file provides all information needed to obtain these datasets
 and to run the programming examples. Further, the code examples are well
 documented in the Jupyter notebook versions. However, the purpose of the
-examples are to illustrate concepts taught in the LDL book. The examples
-should be considered in that context, and are best consumed in conjunction
-with reading the book.
+examples are to illustrate concepts taught in the LDL book and videos.
+The examples should be considered in that context, and are best consumed in
+conjunction with reading the book.
 
 ## Docker Files
 The repository contains two Docker files to simplify running the code examples under Docker:
@@ -46,11 +49,15 @@ verbose when using GPU acceleration. To make it less verbose, set the
 environment variable `TF_CPP_MIN_LOG_LEVEL` to the value 2. If you are 
 using bash, this can be done with `export TF_CPP_MIN_LOG_LEVEL=2`.
 
-The naming of each code example follows the pattern `cXeY_DESCRIPTION.py`
-where X represents the chapter number, Y the example number in that chapter,
-and DESCRIPTION is a brief description of what the example is doing. The
-examples named `aFeY_DESCRIPTION.py` are not from a regular chapter but from
-*Appendix F*.
+The naming of each code example from the book follows the pattern
+`cXeY_DESCRIPTION.py` where X represents the chapter number, Y the example
+number in that chapter, and DESCRIPTION is a brief description of what the
+example is doing. The examples named `aFeY_DESCRIPTION.py` are not from a
+regular chapter but from *Appendix F*.
+
+The naming of each code example from the videos follows the pattern
+`vX_Y_DESCRIPTION.py` where X_Y represents the video number and DESCRIPTION
+is a brief description of what the example is doing.
 
 Apart from the three directories containing code examples, there is a single
 directory named `data` that is supposed to contain datasets needed by some of
@@ -72,7 +79,7 @@ Some of the code examples have alternative versions to work around issues observ
 on some platforms. This applies to the following code examples:
 * `tf_framework/c11_e1_autocomplete_no_rdo` - this version does not use recurrent
  dropout, which causes hangs on some platforms
-* `tf_framework/c12_e1_autocomplete_embeddin_no_rdo` - this version does not use recurrent
+* `tf_framework/c12_e1_autocomplete_embedding_no_rdo` - this version does not use recurrent
  dropout, which causes hangs on some platforms
 * `tf_framework/c17_e4_nas_random_hill_multiprocess` - this version spawns multiple
  processes, which works around a memory leak problem observed on some platforms
