@@ -1,9 +1,11 @@
 # LDL
 This code repository contains code examples associated with the book
-"Learning Deep Learning" (ISBN: 9780137470358), and the video
-series "Learning Deep Learning: From Perceptron to Large Language
-Models" (Video ISBN-13: 9780138177614) by Magnus Ekman. In this readme
-file, "Learning Deep Learning" and "LDL" are used interchangeably.
+"Learning Deep Learning: Theory and Practice of Neural Networks,
+Computer Vision, Natural Language Processing, and Transformers Using
+TensorFlow" (ISBN: 9780137470358), and the video series "Learning Deep
+Learning: From Perceptron to Large Language Models" (ISBN: 9780138177553)
+by Magnus Ekman. In this readme file, "Learning Deep Learning" and "LDL"
+are used interchangeably.
 
 Related web sites:
 * Publisher (Pearson) site with supplemental material and links to buy
