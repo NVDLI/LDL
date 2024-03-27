@@ -21,22 +21,23 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 """
 
-from sklearn.datasets import load_boston
 from sklearn.model_selection import train_test_split
 import torch
 import torch.nn as nn
 from torch.utils.data import TensorDataset, DataLoader
 import numpy as np
 from utilities import train_model
+import pandas as pd
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 EPOCHS = 500
 BATCH_SIZE = 16
 
 # Read and standardize the data.
-boston_housing = load_boston()
-data = boston_housing.get('data')
-target = boston_housing.get('target')
+data_url = "http://lib.stat.cmu.edu/datasets/boston"
+raw_df = pd.read_csv(data_url, sep="\\s+", skiprows=22, header=None)
+data = np.hstack([raw_df.values[::2, :], raw_df.values[1::2, :2]])
+target = raw_df.values[1::2, 2]
 
 raw_x_train, raw_x_test, y_train, y_test = train_test_split(
     data, target, test_size=0.2, random_state=0)
