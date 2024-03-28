@@ -9,13 +9,18 @@ are used interchangeably.
 
 Related web sites:
 * Publisher (Pearson) site with supplemental material and links to buy
-  LDL: http://informit.com/title/9780137470358
+  the LDL book: http://informit.com/title/9780137470358
+* Publisher (Pearson) site with supplemental material and links to buy
+  the LDL videos: https://www.informit.com/store/learning-deep-learning-from-perceptron-to-large-language-9780138177553
 * Author's site: http://ldlbook.com
 * NVIDIA Deep Learning Institute (DLI) book site:
   http://www.nvidia.com/dli-books
 
 The LDL book can also be purchased at Amazon.com:
 https://www.amazon.com/Learning-Deep-Practice-Transformers-TensorFlow/dp/0137470355
+
+The LDL video series can also be accessed at O'REILLY:
+https://learning.oreilly.com/course/learning-deep-learning/9780138177652/
 
 Some of the code examples rely on datasets that are not in the repository
 itself. This file provides all information needed to obtain these datasets
