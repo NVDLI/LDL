@@ -80,6 +80,7 @@ numpy==1.24.3
     #   idx2numpy
     #   matplotlib
     #   opt-einsum
+    #   pandas
     #   scikit-learn
     #   scipy
     #   tensorboard
@@ -124,6 +125,8 @@ packaging==23.2
     # via
     #   matplotlib
     #   tensorflow
+pandas==2.2.2
+    # via -r requirements.in
 pillow==10.2.0
     # via
     #   -r requirements.in
@@ -142,7 +145,11 @@ pyasn1-modules==0.3.0
 pyparsing==3.1.1
     # via matplotlib
 python-dateutil==2.8.2
-    # via matplotlib
+    # via
+    #   matplotlib
+    #   pandas
+pytz==2024.1
+    # via pandas
 requests==2.31.0
     # via
     #   requests-oauthlib
@@ -194,6 +201,8 @@ typing-extensions==4.5.0
     # via
     #   tensorflow
     #   torch
+tzdata==2024.1
+    # via pandas
 urllib3==2.2.0
     # via requests
 werkzeug==3.0.1
