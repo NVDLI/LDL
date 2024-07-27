@@ -127,6 +127,15 @@ Download the following files:
 * `t10k-images-idx3-ubyt.gz`
 * `t10k-labels-idx1-ubyte.gz`
 
+[OR]
+
+If it has issues, download directly from Github:
+
+* `$ wget https://raw.githubusercontent.com/fgnt/mnist/master/train-images-idx3-ubyte.gz`
+* `$ wget https://raw.githubusercontent.com/fgnt/mnist/master/train-labels-idx1-ubyte.gz`
+* `$ wget https://raw.githubusercontent.com/fgnt/mnist/master/t10k-images-idx3-ubyte.gz`
+* `$ wget https://raw.githubusercontent.com/fgnt/mnist/master/t10k-labels-idx1-ubyte.gz`
+
 Once downloaded, gunzip them to the `data/mnist/` directory. You need the
 Python package idx2numpy to use this version of the MNIST dataset.
 
