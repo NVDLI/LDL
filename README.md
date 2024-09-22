@@ -130,6 +130,12 @@ Download the following files:
 Once downloaded, gunzip them to the `data/mnist/` directory. You need the
 Python package idx2numpy to use this version of the MNIST dataset.
 
+Alternative links if the URL above does not work:
+* https://ossci-datasets.s3.amazonaws.com/mnist/train-images-idx3-ubyte.gz
+* https://ossci-datasets.s3.amazonaws.com/mnist/train-labels-idx1-ubyte.gz
+* https://ossci-datasets.s3.amazonaws.com/mnist/t10k-images-idx3-ubyte.gz
+* https://ossci-datasets.s3.amazonaws.com/mnist/t10k-labels-idx1-ubyte.gz
+
 ### BOOKSTORE SALES DATA FROM US CENSUS BUREAU
 Sales data from the United States Census Bureau can be obtained from
 https://www.census.gov/econ/currentdata.
