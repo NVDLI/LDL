@@ -2,4 +2,4 @@ FROM nvcr.io/nvidia/tensorflow:23.10-tf2-py3
 
 WORKDIR /workspace
 
-RUN pip install --upgrade pip matplotlib idx2numpy
+RUN pip install --upgrade pip matplotlib==3.8.3 idx2numpy==1.2.3 keras-nlp==0.6.2 "tensorflow<2.13.1"
