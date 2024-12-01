@@ -25,6 +25,7 @@ import numpy as np
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.layers import LSTM
+from tensorflow.keras.layers import Input
 import tensorflow as tf
 import logging
 tf.get_logger().setLevel(logging.ERROR)
@@ -74,9 +75,8 @@ for i, fragment in enumerate(fragments):
 
 # Build and train model.
 model = Sequential()
-model.add(LSTM(128, return_sequences=True,
-                        dropout=0.2,
-                        input_shape=(None, encoding_width)))
+model.add(Input(shape=(None, encoding_width), batch_size=BATCH_SIZE))
+model.add(LSTM(128, return_sequences=True, dropout=0.2))
 model.add(LSTM(128, dropout=0.2))
 model.add(Dense(encoding_width, activation='softmax'))
 model.compile(loss='categorical_crossentropy',

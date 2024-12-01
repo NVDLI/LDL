@@ -109,7 +109,7 @@ dest_tokenizer, dest_token_seq = tokenize(dest_seq)
 dest_target_token_seq = [x + [STOP_INDEX] for x in dest_token_seq]
 dest_input_token_seq = [[START_INDEX] + x for x in
                         dest_target_token_seq]
-src_input_data = pad_sequences(src_token_seq)
+src_input_data = pad_sequences(src_token_seq, padding='post')
 dest_input_data = pad_sequences(dest_input_token_seq,
                                 padding='post')
 dest_target_data = pad_sequences(
@@ -218,7 +218,7 @@ train_dec_output, _, _, _, _ = dec_model(
 training_model = Model([train_enc_embedding_input,
                         train_dec_embedding_input],
                         train_dec_output)
-optimizer = RMSprop(lr=0.01)
+optimizer = RMSprop(learning_rate=0.01)
 training_model.compile(loss='sparse_categorical_crossentropy',
                        optimizer=optimizer, metrics =['accuracy'])
 training_model.summary()

@@ -1,5 +1,7 @@
-FROM nvcr.io/nvidia/tensorflow:23.10-tf2-py3
+FROM nvcr.io/nvidia/tensorflow:24.10-tf2-py3
 
 WORKDIR /workspace
 
-RUN pip install --upgrade pip matplotlib==3.8.3 idx2numpy==1.2.3 keras-nlp==0.6.2 "tensorflow<2.13.1"
+RUN pip install matplotlib==3.9.2 idx2numpy==1.2.3 keras-nlp==0.9.0 "tensorflow<2.17"
+
+ENV TF_USE_LEGACY_KERAS=

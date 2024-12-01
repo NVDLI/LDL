@@ -118,7 +118,7 @@ model = Model([image_input, text_input], [class_outputs,
                                           answer_outputs])
 model.compile(loss=['sparse_categorical_crossentropy',
                     'binary_crossentropy'], optimizer='adam',
-                    metrics=['accuracy'],
+                    metrics=['accuracy', 'accuracy'],
                     loss_weights = [0.5, 0.5])
 model.summary()
 history = model.fit([train_images, train_text],

@@ -42,7 +42,7 @@ from tensorflow.keras.applications.vgg19 import \
     preprocess_input
 from tensorflow.keras.preprocessing.image import load_img
 from tensorflow.keras.preprocessing.image import img_to_array
-from tensorflow.keras.utils import Sequence
+from tensorflow.keras.utils import PyDataset
 from tensorflow.keras.preprocessing.sequence import \
     pad_sequences
 import pickle
@@ -116,10 +116,11 @@ image_paths, dest_seq = read_training_file(TRAINING_FILE_DIR \
     + 'caption_file.pickle.gz', MAX_LENGTH)
 dest_tokenizer, dest_token_seq = tokenize(dest_seq)
 
-# Sequence class to create batches on the fly.
-class ImageCaptionSequence(Sequence):
+# Dataset class to create batches on the fly.
+class ImageCaptionDataset(PyDataset):
     def __init__(self, image_paths, dest_input_data,
-                 dest_target_data, batch_size):
+                 dest_target_data, batch_size, **kwargs):
+        super().__init__(**kwargs)        
         self.image_paths = image_paths
         self.dest_input_data = dest_input_data
         self.dest_target_data = dest_target_data
@@ -144,8 +145,8 @@ class ImageCaptionSequence(Sequence):
             feature_vector = pickle.load(pickle_file)
             pickle_file.close()
             image_features.append(feature_vector)
-        return [np.array(image_features),
-                np.array(batch_x1)], np.array(batch_y)
+        return (np.array(image_features),
+                np.array(batch_x1)), np.array(batch_y)
 
 # Prepare training data.
 dest_target_token_seq = [x + [STOP_INDEX] for x in dest_token_seq]
@@ -156,7 +157,7 @@ dest_input_data = pad_sequences(dest_input_token_seq,
 dest_target_data = pad_sequences(
     dest_target_token_seq, padding='post',
     maxlen=len(dest_input_data[0]))
-image_sequence = ImageCaptionSequence(
+image_dataset = ImageCaptionDataset(
     image_paths, dest_input_data, dest_target_data, BATCH_SIZE)
 
 # Build encoder model.
@@ -182,15 +183,14 @@ enc_model_top.summary()
 
 # Build decoder model.
 # Input to the network is feature_vector, image caption
-# sequence, and intermediate state.
+# dataset, and intermediate state.
 dec_feature_vector_input = Input(shape=(14, 14, 512))
 dec_embedding_input = Input(shape=(None, ))
 dec_layer1_state_input_h = Input(shape=(LAYER_SIZE,))
 dec_layer1_state_input_c = Input(shape=(LAYER_SIZE,))
 
 # Create the decoder layers.
-dec_reshape_layer = Reshape((196, 512),
-                            input_shape=(14, 14, 512,))
+dec_reshape_layer = Reshape((196, 512))
 dec_attention_layer = Attention()
 dec_query_layer = Dense(512)
 dec_embedding_layer = Embedding(output_dim=EMBEDDING_WIDTH,
@@ -251,7 +251,7 @@ inference_enc_model.summary()
 
 for i in range(EPOCHS): # Train and evaluate model
     print('step: ' , i)
-    history = training_model.fit(image_sequence, epochs=1)
+    history = training_model.fit(image_dataset, epochs=1)
     for filename in TEST_IMAGES:
         # Determine dimensions.
         image = load_img(TEST_FILE_DIR + filename)

@@ -26,6 +26,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.layers import LSTM
 from tensorflow.keras.layers import Embedding
+from tensorflow.keras.layers import Input
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.text \
     import text_to_word_sequence
@@ -71,9 +72,10 @@ for i, target_index in enumerate(targets_indexed):
 
 # Build and train model.
 training_model = Sequential()
+training_model.add(Input(shape=(None,), batch_size=BATCH_SIZE))
 training_model.add(Embedding(
     output_dim=EMBEDDING_WIDTH, input_dim=MAX_WORDS,
-    mask_zero=True, input_length=None))
+    mask_zero=True))
 training_model.add(LSTM(128, return_sequences=True,
                         dropout=0.2))
 training_model.add(LSTM(128, dropout=0.2))
@@ -89,9 +91,10 @@ history = training_model.fit(X, y, validation_split=0.05,
 
 # Build stateful model used for prediction.
 inference_model = Sequential()
+inference_model.add(Input(shape=(None,), batch_size=1))
 inference_model.add(Embedding(
     output_dim=EMBEDDING_WIDTH, input_dim=MAX_WORDS,
-    mask_zero=False, batch_input_shape=(1, 1)))
+    mask_zero=False))
 inference_model.add(LSTM(128, return_sequences=True,
                          dropout=0.2,
                          stateful=True))
@@ -107,7 +110,8 @@ inference_model.set_weights(weights)
 first_words = ['i', 'saw']
 first_words_indexed = tokenizer.texts_to_sequences(
     first_words)
-inference_model.reset_states()
+inference_model.layers[1].reset_states()
+inference_model.layers[2].reset_states()
 predicted_string = ''
 # Feed initial words to the model.
 for i, word_index in enumerate(first_words_indexed):

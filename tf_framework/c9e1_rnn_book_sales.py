@@ -28,6 +28,7 @@ from tensorflow import keras
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.layers import SimpleRNN
+from tensorflow.keras.layers import Input
 import logging
 tf.get_logger().setLevel(logging.ERROR)
 
@@ -102,8 +103,8 @@ for i in range(0, test_months-MIN):
 
 # Create RNN model
 model = Sequential()
-model.add(SimpleRNN(128, activation='relu',
-                    input_shape=(None, 1)))
+model.add(Input(shape=(None, 1), batch_size=BATCH_SIZE))
+model.add(SimpleRNN(128, activation='relu'))
 model.add(Dense(1, activation='linear'))
 model.compile(loss='mean_squared_error', optimizer = 'adam',
               metrics =['mean_absolute_error'])
